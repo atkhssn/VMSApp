@@ -1,0 +1,147 @@
+﻿@using VMS.Infrastructure.Model;
+@model VehicleModel
+@{
+    Layout = "~/views/shared/_AdminLayout.cshtml";
+}
+@*
+@section VehicleDatatableStyle{
+
+    <link href="~/vehicledatatables/css/jquery.datatables.css" rel="stylesheet" />
+    <link href="~/vehicledatatables/css/jquery.datatables.min.css" rel="stylesheet" />
+      <link href="https://cdn.datatables.net/v/dt/dt-1.13.6/datatables.min.css" rel="stylesheet">
+
+    <script src="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"></script>
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script> 
+
+
+}*@
+<div class="">
+    <div class="bg-light rounded h-100 p-4">
+        <h6 class="mb-4">Vehicle Update</h6>
+
+
+        @*  <div class="card-body"> *@
+        <form asp-action="Create" asp-controller="Cow" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+            {
+                <div class="alert alert-warning">
+                    @ViewData["ErrorMessage"]
+                </div>
+            }
+            <div class="row mx-2">
+                <!-- Start Vehicle Drop Down Fields -->
+                <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                    <div class="form-group">
+                        <label class="control-label ">Vehicle Type</label>
+                        <select class="form-control" asp-items="ViewBag.breedlist">
+                            <option value="">-- Select Breed --</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                    <div class="form-group">
+                        <label class="control-label">Color</label>
+                        <input asp-for="Color" type="text" class="form-control" placeholder="Enter color">
+                    </div>
+                </div>
+
+                
+
+            </div>
+
+            <!-- End Vehicle Drop Down Fields -->
+
+            <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                <div class="form-group">
+                    <label class="control-label">Registration No:</label>
+                    <input asp-for="RegNo" type="number" class="form-control" placeholder="Enter registration number">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                <div class="form-group">
+                    <label class="control-label">Registration Date:</label>
+                    <input asp-for="RegDate" type="date" class="form-control" placeholder="Enter reg. date">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                <div class="form-group">
+                    <label class="control-label">Registration Expiry Date:</label>
+                    <input  type="date" class="form-control" placeholder="Enter reg. expiry date">
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                <div class="form-group">
+                    <label class="control-label">Engine Number:</label>
+                    <input  type="text" class="form-control" placeholder="Enter engine number">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                <div class="form-group">
+                    <label class="control-label">Chassis Number:</label>
+                    <input type="text" class="form-control" placeholder="Enter chassis number">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                <div class="form-group">
+                    <label class="control-label">Fitness and Tax token</label>
+                    <input type="text" class="form-control" placeholder="Enter fitness and tax token">
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                <div class="form-group">
+                    <label class="control-label">Fitness Expiry Date:</label>
+                    <input  type="text" class="form-control" placeholder="Enter Expiry Date">
+                </div>
+            </div>
+
+            @*<div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+            <div class="form-group">
+            <label class="control-label">Vehicle Image</label>
+            <input asp-for="Image"  type="file" class="form-control" placeholder="Upload vehicle image ">
+            </div>
+            </div>*@
+
+            <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                <div class="form-group">
+                    <label class="control-label">Vehicle Document</label>
+                    <input asp-for="Document" type="file" class="form-control" placeholder="Upload vehicle document ">
+                </div>
+            </div>
+
+
+
+            <div class="row mx-2">
+                <div class="form-group col-sm-12">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+
+
+        </form>
+
+
+    </div>
+</div>
+
+
+@*@section VehicleDatatableScript{
+
+    <script src="~/vehicledatatables/js/jquery.datatables.js"></script>
+    <script src="~/vehicledatatables/js/jquery.datatables.min.js"></script>
+    <script src="~/js/vehicle_js.js"></script>
+
+    <script src="~/vehicledatatables/ltetables/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/vehicledatatables/ltetables/js/buttons.colvis.min.js"></script>
+    <script src="~/vehicledatatables/ltetables/js/buttons.html5.min.js"></script>
+    <script src="~/vehicledatatables/ltetables/js/buttons.print.min.js"></script>
+    <script src="~/vehicledatatables/ltetables/js/datatables.bootstrap4.min.js"></script>
+    <script src="~/vehicledatatables/ltetables/js/datatables.buttons.min.js"></script>
+    <script src="~/vehicledatatables/ltetables/js/datatables.responsive.min.js"></script>
+    <script src="~/vehicledatatables/ltetables/js/jquery.datatables.min.js"></script>
+    <script src="~/vehicledatatables/ltetables/js/responsive.bootstrap4.min.js"></script> 
+}
+
+
+*@

@@ -1,0 +1,37 @@
+﻿<div class="navbar-nav w-100">
+    <div class="border-bottom mb-2">
+        <div>
+            <a asp-controller="Admin" asp-action="index" class="nav-item nav-link "><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+        </div>
+
+        <div>
+            <a asp-controller="Maintenance" asp-action="Index" class="nav-item nav-link"><i class="fa fa-car-battery me-2"></i>Maintenance</a>
+        </div>
+    </div>
+
+    <div class="dropdown setting-box">
+        <button class="nav-item nav-link setting-btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-cog me-2"></i>Settings
+        </button>
+
+        <div class="dropdown-menu menu-content" aria-labelledby="dropdownMenuButton">
+            <div>
+                <a asp-controller="Manufacture" asp-action="Index" class="nav-item nav-link"><i class="fa fa-car me-2"></i>Manufacture</a>
+            </div>
+
+            <div>
+                <a asp-controller="Vehicle" asp-action="index" class="nav-item nav-link"><i class="fa fa-car me-2"></i>Vehicle</a>
+            </div>
+
+            <div>
+                <a asp-controller="Driver" asp-action="Index" class="nav-item nav-link"><i class="fa fa-user me-2"></i> Driver</a>
+            </div>
+            <div>
+                <a asp-controller="Merchant" asp-action="Index" class="nav-item nav-link"><i class="fa fa-store me-2"></i> Merchant</a>
+            </div>
+            <div>
+                <a asp-controller="TransportAgency" asp-action="Index" class="nav-item nav-link"><i class="fa fa-handshake me-2"></i>Trans. Agency</a>
+            </div>
+        </div>
+    </div>
+</div>

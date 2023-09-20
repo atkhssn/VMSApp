@@ -1,0 +1,47 @@
+﻿@using VMS.Infrastructure.Model;
+@model DriverModel
+@using static VMS.Infrastructure.Utility.EnumCollection;
+@{
+    Layout = "~/views/shared/_adminlayout.cshtml";
+}
+
+<div class="mt-2 p-2">
+    <div class="bg-white rounded-lg shadow-sm p-5 text-dark border h-100 p-4">
+        <h4 class="text-info m">New Driver Create</h4>
+
+        <form id="form" asp-controller="Driver" asp-action="Update" method="post" enctype="multipart/form-data">
+            <input asp-for="DId" type="text" id="DriverName" class="form-control" hidden>
+            <div class="row mx-2">
+                <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                    <div class="form-group">
+                        <label class="control-label">Driver Name</label>
+                        <input asp-for="DName" type="text" id="DriverName" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                    <div class="form-group">
+                        <label class="control-label">Driver Shift</label>
+                        <input asp-for="DriverShift" type="text" id="DriverShift" class="form-control">
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3 col-lg-3 mb-2">
+                    <div class="form-group">
+                        <label class="control-label">Licence Number</label>
+                        <input asp-for="Licenceno" id="Licenceno" type="number" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mx-2">
+                <div class="form-group col-sm-12 update-group">
+                    <button id="formButton" type="submit" class="btn btn-info" asp-controller="Driver" asp-action="Update">Update</button>
+                    <button id="formButton" type="submit" class="btn btn-danger" asp-controller="Driver" asp-action="Delete">Delete</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+

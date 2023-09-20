@@ -1,0 +1,154 @@
+﻿@using static VMS.Infrastructure.Utility.EnumCollection;
+@model VMS.Infrastructure.Model.MaintenanceModel
+@{
+    Layout = "~/views/shared/_adminlayout.cshtml";
+
+}
+
+<div class="">
+    <div class="bg-white rounded-lg shadow-sm p-5 text-dark border h-100 p-4">
+        <h6 class="mb-4">Add New Maintenance</h6>
+        <form asp-action="Create" asp-controller="Maintenance" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger border border-info"></div>
+            @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"] as string))
+            {
+                <div class="alert alert-warning">
+                    @ViewData["ErrorMessage"]
+                </div>
+            }
+            <div class="row">
+                <!-- Start Vehicle Drop Down Fields -->
+
+                <input type="hidden" id="total" value="0" />
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label class="control-label">Vehicle Id</label>
+                        <input name="[0].VehicleId" type="number" class="form-control" value="" placeholder="Enter the Vehicle">
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label class="control-label">Trip No</label>
+                        <input name="[0].TripId" type="number" class="form-control" value="" placeholder="Enter the Vehicle">
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label class="control-label">Service Date</label>
+                        <input name="[0].ServiceDate" class="my-datepicker form-control " type="date" placeholder="Enter Service Date">
+                        <span asp-validation-for="ServiceDate" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label class="control-label">Services Bill</label>
+                        <input name="[0].WorkshopBill" type="text" class="form-control" value="" placeholder="Enter billing history">
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-group">
+                        <label asp-for="Status" class="control-label">Maintaince Status</label>
+                        <select id="Condition" name="[0].Status" asp-items="Html.GetEnumSelectList<Condition>()" class="form-control bg-white">
+                            <option>Select Status </option>
+
+                        </select>
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+
+                    <div class="form-group">
+                        <label class="control-label">Description</label>
+                        <textarea name="[0].Description" type="text" class="form-control" value="" style="height:15px"
+                                  placeholder="Enter Description"></textarea>
+                    </div>
+
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <div class="form-group">
+                                <label class="control-label ">Parts Name</label>
+                                <input id="PartsName" name="[0].PartsName" type="text" value="" class="form-control" placeholder="Enter parts name">
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <label class="control-label">Parts Price</label>
+                            <input id="partsPrice" name="[0].PartsPrice" type="text" class="form-control" value="" placeholder="Enter parts price">
+                        </div>
+                        <div class="col-md-2">
+                            <div class="input-group-append text-end">
+
+                                <button type="button" id="partsAddButton" class="btn btn-info d-inline-block update-group mt-4" style="width:fit-content;height:fit-content">
+                                    Add More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 mb-3">
+                    <div class="row" id="formRowId">
+                        
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-12 ">
+                        <button formaction="/Maintenance/Create" type="submit" class="btn btn-info d-inline-block">Add Maintenance</button>
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+@*<div class=" bg-light mt-2 rounded ">
+
+    <table id="myTable" class="table table-bordered table-striped  mt-2">
+        <thead>
+            <tr>
+                <th>SL</th>
+                <th>Service Date</th>
+                <th>Vehicle Reg. No.</th>
+                <th>Category</th>
+                <th>Model</th>
+                <th>Chassis</th>
+
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+        <tf>
+            <tr>
+            </tr>
+        </tf>
+    </table>
+</div>*@
+
+
+<!-- Footer Start -->
+<div class="pt-4">
+    <div class="bg-light rounded-top p-4">
+        <div class="row">
+            <div class="col-md-12 mt-3">
+                <p class="text-center footer-text">2023 &copy; VMS - All Right Reserved.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+@section MaintenanceScript{
+
+    <script src="~/js/maintaincejs.js"></script>
+    <link href="~/css/yearpicker/yearpicker.css" rel="stylesheet" />
+}
